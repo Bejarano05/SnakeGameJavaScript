@@ -9,16 +9,12 @@ ground.src = "img/ground.png";
 const foodImg = new Image();
 foodImg.src = "img/food.png";
 
-
-
-
 let snake = [];
 
 snake[0] = {
     x : 9 * box,
     y : 10 * box
 };
-
 
 let food = {
     x : Math.floor(Math.random()*17+1) * box,
@@ -35,7 +31,6 @@ function direction(event){
     let key = event.keyCode;
     if( key == 37 && d != "RIGHT"){
         d = "LEFT";
-        
     }else if(key == 38 && d != "DOWN"){
         d = "UP";
     }else if(key == 39 && d != "LEFT"){
@@ -82,7 +77,8 @@ function draw(){
             x : Math.floor(Math.random()*17+1) * box,
             y : Math.floor(Math.random()*15+3) * box
         }
-    }else{
+    }
+    else{
         snake.pop();
     }
     
@@ -90,10 +86,9 @@ function draw(){
         x : snakeX,
         y : snakeY
     }
-    
+
     if(snakeX < box || snakeX > 17 * box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
         clearInterval(game);
-        alert("Perdiste");
     }
     
     snake.unshift(newHead);
@@ -102,6 +97,4 @@ function draw(){
     ctx.font = "45px Changa one";
     ctx.fillText(score,2*box,1.6*box);
 }
-
-
 let game = setInterval(draw,100);
