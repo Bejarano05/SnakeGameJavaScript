@@ -60,7 +60,7 @@ function draw(){
         ctx.strokeStyle = "red";
         ctx.strokeRect(snake[i].x,snake[i].y,box,box);
     }
-    
+    let x = document.getElementById("reset");
     ctx.drawImage(foodImg, food.x, food.y);
     
     let snakeX = snake[0].x;
@@ -86,11 +86,26 @@ function draw(){
         x : snakeX,
         y : snakeY
     }
+    
+    function aparecer(){
+        let x = document.getElementById("reset");
+        if(x.style.display == "none"){
+            x.style.display = "block";
+        }
+        else{
+            x.style.display = "none";
+        }
+    }
 
     if(snakeX < box || snakeX > 17 * box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
-        alert("Perdiste");
-        clearInterval(game);
         
+        
+        clearInterval(game);
+        aparecer();
+        $("#yes").click(function(){
+            
+            alert("s");
+        });
     }
     
     snake.unshift(newHead);
@@ -99,4 +114,7 @@ function draw(){
     ctx.font = "45px Changa one";
     ctx.fillText(score,2*box,1.6*box);
 }
+xx = document.getElementById("reset");
+xx.style.display="none";
+console.log("INICIO"+xx.style.display);
 let game = setInterval(draw,100);
