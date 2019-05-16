@@ -102,10 +102,7 @@ function draw(){
         
         clearInterval(game);
         aparecer();
-        $("#yes").click(function(){
-            
-            alert("s");
-        });
+        
     }
     
     snake.unshift(newHead);
