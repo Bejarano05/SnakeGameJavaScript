@@ -1,0 +1,16 @@
+body
+{
+    display: flex;
+}
+#reset
+{
+    display: none;
+    position: absolute;
+    background-color: grey;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+
+    margin-left: 43.5%;
+    margin-top: 17.5%;
+}
